@@ -1,18 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Transform [] _wayPoints;
+    [SerializeField] NavMeshAgent _agentEnemy;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    int _wayCount = 0;
+
+    enum enemy {WALK, SEE, PURCHASE}
+
+    //void Update()
+    //{
+    //    switch (enemy)
+    //    {
+    //        case enemy.WALK:
+    //            break;
+    //        case enemy.SEE:
+    //            break;
+    //        case enemy.PURCHASE:
+    //            break;
+    //        default:
+    //            break;
+    //    }
+        //for (int i = 0; i < _wayPoints.Length; i++)
+        //{
+        //    int wayPoint = _wayPoints[i];
+        //}
+    //}
 }

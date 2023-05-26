@@ -29,15 +29,20 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 _agent.SetDestination (hit.point);
             }
+        }
+    }
 
-            if (_agent.hasPath)
+    void OnDrawGizmos ()
+    {
+        if (_isClicked && _agent.hasPath)
+        {
+            NavMeshPath path = _agent.path;
+            Vector3[] corners = path.corners;
+
+            for (int i = 0; i < corners.Length - 1; i++)
             {
-                Vector3[] corners = _agent.path.corners;
-
-                for (int i = 0; i < corners.Length - 1; i++)
-                {
-                    Debug.DrawLine (corners[i], corners[i + 1], Color.green);
-                }
+                Gizmos.color = Color.blue;
+                Gizmos.DrawLine (corners[i], corners[i + 1]);
             }
         }
     }
