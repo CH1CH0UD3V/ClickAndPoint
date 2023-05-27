@@ -8,26 +8,31 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] Transform [] _wayPoints;
     [SerializeField] NavMeshAgent _agentEnemy;
 
-    int _wayCount = 0;
+    int _wayIndex;
 
-    enum enemy {WALK, SEE, PURCHASE}
+    //enum enemy {WALK, SEE, PURCHASE}
 
-    //void Update()
-    //{
-    //    switch (enemy)
-    //    {
-    //        case enemy.WALK:
-    //            break;
-    //        case enemy.SEE:
-    //            break;
-    //        case enemy.PURCHASE:
-    //            break;
-    //        default:
-    //            break;
-    //    }
-        //for (int i = 0; i < _wayPoints.Length; i++)
-        //{
-        //    int wayPoint = _wayPoints[i];
-        //}
-    //}
+    private void Awake ()
+    {
+        _agentEnemy = GetComponent<NavMeshAgent> ();
+    }
+    private void Start ()
+    {
+        _wayIndex = 0;
+        _agentEnemy.SetDestination (_wayPoints[_wayIndex].position);
+    }
+    void Update()
+    {
+        if (_agentEnemy.remainingDistance < _agentEnemy.stoppingDistance)
+        {
+            _wayIndex++;
+
+            if (_wayIndex >= _wayPoints.Length)
+            {
+                _wayIndex = 0;
+            }
+            _agentEnemy.SetDestination (_wayPoints[_wayIndex].position);
+        }
+    }
+
 }
