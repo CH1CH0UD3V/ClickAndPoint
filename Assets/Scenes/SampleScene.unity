@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 150516903}
   - component: {fileID: 150516902}
   - component: {fileID: 150516901}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 222009256}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: =====ENVIRONMENT=====
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +410,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 463562659}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 504604144}
   - component: {fileID: 504604143}
   - component: {fileID: 504604142}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -546,7 +546,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 556196193}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plateform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -582,7 +582,7 @@ GameObject:
   - component: {fileID: 564436653}
   - component: {fileID: 564436652}
   - component: {fileID: 564436651}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -676,7 +676,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 622219493}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -719,6 +719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c9cfd2439388794591667d2218c8e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mapLayer: wall
 --- !u!4 &728208766 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2998900933960351492, guid: d117a2013705a304f961d568233b6876,
@@ -786,7 +787,7 @@ GameObject:
   - component: {fileID: 857933972}
   - component: {fileID: 857933971}
   - component: {fileID: 857933970}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -947,7 +948,7 @@ GameObject:
   - component: {fileID: 1392735936}
   - component: {fileID: 1392735935}
   - component: {fileID: 1392735934}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1044,7 +1045,7 @@ GameObject:
   - component: {fileID: 1430649444}
   - component: {fileID: 1430649443}
   - component: {fileID: 1430649442}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundVL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1141,7 +1142,7 @@ GameObject:
   - component: {fileID: 1456988934}
   - component: {fileID: 1456988933}
   - component: {fileID: 1456988932}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1238,7 +1239,7 @@ GameObject:
   - component: {fileID: 1488064323}
   - component: {fileID: 1488064322}
   - component: {fileID: 1488064321}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1366,7 +1367,7 @@ GameObject:
   - component: {fileID: 1886544341}
   - component: {fileID: 1886544340}
   - component: {fileID: 1886544339}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1527,7 +1528,7 @@ GameObject:
   - component: {fileID: 1975534604}
   - component: {fileID: 1975534603}
   - component: {fileID: 1975534602}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1624,7 +1625,7 @@ GameObject:
   - component: {fileID: 2120296648}
   - component: {fileID: 2120296647}
   - component: {fileID: 2120296646}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundVR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1778,6 +1779,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d117a2013705a304f961d568233b6876, type: 3}
+--- !u!1 &2998900933974986616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2998900933960351493, guid: d117a2013705a304f961d568233b6876,
+    type: 3}
+  m_PrefabInstance: {fileID: 2998900933974986615}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2998900933974986617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2998900933974986616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3284bace79aacf44fbc9f6fda08e3a7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4760743820362315205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1862,9 +1881,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d08e36dfc060fe94b8bc5a1f22a56402, type: 3}
+--- !u!1 &4760743820362315206 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3892943208300979007, guid: d08e36dfc060fe94b8bc5a1f22a56402,
+    type: 3}
+  m_PrefabInstance: {fileID: 4760743820362315205}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4760743820362315209 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3892943208300979006, guid: d08e36dfc060fe94b8bc5a1f22a56402,
     type: 3}
   m_PrefabInstance: {fileID: 4760743820362315205}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4760743820362315210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4760743820362315206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c041bcd1f0477f94d9f8f5f093012f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
