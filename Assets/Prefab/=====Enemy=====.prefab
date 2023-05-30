@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 3892943208300979001}
   - component: {fileID: 3892943208300979003}
   - component: {fileID: 3892943208300979002}
+  - component: {fileID: 4760743820362315210}
   m_Layer: 0
   m_Name: =====Enemy=====
   m_TagString: Untagged
@@ -174,6 +175,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _agentEnemy: {fileID: 3892943208300979003}
+--- !u!114 &4760743820362315210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3892943208300979007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c041bcd1f0477f94d9f8f5f093012f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3892943208592338497
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4760743819018239024}
   - component: {fileID: 4760743819018239027}
+  - component: {fileID: 666757650}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -303,6 +317,19 @@ CapsuleCollider:
   m_Height: 3.1278555
   m_Direction: 2
   m_Center: {x: 0.008064806, y: -0.40519845, z: 2.0635777}
+--- !u!114 &666757650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4760743819018239025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c9cfd2439388794591667d2218c8e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mapLayer: wall
 --- !u!1 &4760743819947044554
 GameObject:
   m_ObjectHideFlags: 0

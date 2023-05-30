@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField] InputActionReference _mouseDelta;
-    [SerializeField] NavMeshAgent _agent;
+    
+    NavMeshAgent _agent;
     Camera _mainCamera;
     bool _isClicked;
     RaycastHit hit;
@@ -14,9 +15,18 @@ public class PlayerBehaviour : MonoBehaviour
     {
         _agent = GetComponent<NavMeshAgent>();
         _mainCamera = Camera.main;
+    }
 
+    private void OnEnable ()
+    {
         _mouseDelta.action.performed += MouseClick;
-        _mouseDelta.action.canceled += MouseUnclick; ;
+        _mouseDelta.action.canceled += MouseUnclick;
+    }
+
+    private void OnDisable ()
+    {
+        _mouseDelta.action.performed -= MouseClick;
+        _mouseDelta.action.canceled -= MouseUnclick;
     }
 
     private void Update ()
@@ -30,22 +40,7 @@ public class PlayerBehaviour : MonoBehaviour
                 _agent.SetDestination (hit.point);
             }
         }
-    }
-
-    void OnDrawGizmos ()
-    {
-        if (_isClicked && _agent.hasPath)
-        {
-            NavMeshPath path = _agent.path;
-            Vector3[] corners = path.corners;
-
-            for (int i = 0; i < corners.Length - 1; i++)
-            {
-                Gizmos.color = Color.blue;
-                Gizmos.DrawLine (corners[i], corners[i + 1]);
-            }
-        }
-    }
+    }    
 
     private void MouseClick (InputAction.CallbackContext obj)
     {
