@@ -26,6 +26,17 @@
                     "action": "ClickAndMove",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5cb36a35-f53c-4c2d-aea8-1fe9e28576f7",
+                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClickAndMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
