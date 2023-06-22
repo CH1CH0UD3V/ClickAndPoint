@@ -4,31 +4,40 @@ using UnityEngine.InputSystem;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    [SerializeField] InputActionReference _mouseDelta;
+    #region Champs
+    [SerializeField] InputActionReference _mousePosition;
     
     NavMeshAgent _agent;
     Camera _mainCamera;
     bool _isClicked;
     RaycastHit hit;
+    #endregion
 
-    void Start()
+    #region Start
+    void Start ()
     {
         _agent = GetComponent<NavMeshAgent>();
         _mainCamera = Camera.main;
     }
+    #endregion
 
+    #region OnEnable
     private void OnEnable ()
     {
-        _mouseDelta.action.performed += MouseClick;
-        _mouseDelta.action.canceled += MouseUnclick;
+        _mousePosition.action.performed += MouseClick;
+        _mousePosition.action.canceled += MouseUnclick;
     }
+    #endregion
 
+    #region OnDisable
     private void OnDisable ()
     {
-        _mouseDelta.action.performed -= MouseClick;
-        _mouseDelta.action.canceled -= MouseUnclick;
+        _mousePosition.action.performed -= MouseClick;
+        _mousePosition.action.canceled -= MouseUnclick;
     }
+    #endregion
 
+    #region Update
     private void Update ()
     {
         if (_isClicked)
@@ -40,8 +49,10 @@ public class PlayerBehaviour : MonoBehaviour
                 _agent.SetDestination (hit.point);
             }
         }
-    }    
+    }
+    #endregion
 
+    #region Input
     private void MouseClick (InputAction.CallbackContext obj)
     {
         _isClicked = true;
@@ -50,4 +61,5 @@ public class PlayerBehaviour : MonoBehaviour
     {
         _isClicked = false;
     }
+    #endregion
 }

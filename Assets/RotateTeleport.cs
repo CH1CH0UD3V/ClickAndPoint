@@ -1,26 +1,36 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using Unity.AI.Navigation;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class RotateTeleport : MonoBehaviour
 {
     #region Champ
-    //[SerializeField] RotateTeleportSO _rtSO;
     [Space (15)]
     [SerializeField] Rigidbody _rbPlayer;
     [Space (15)]
-    [SerializeField] GameObject _platform;
-    [Space (15)]
     [SerializeField] GameObject _walls;
-    //[SerializeField] Transform _playerTr;
+    [Space (15)]
+    [SerializeField] GameObject _teleportDownL, _teleportDownR, _teleportUpL, _teleportUpR;
+    [Space (15)]
+    [SerializeField] GameObject _ground1, _groundVR, _groundVL;
+    [Space (15)]
+    [SerializeField] Animator _animation;
     [Space (15)]
     [SerializeField] NavMeshSurface _suface;
+
+
+    bool _IsRotate;
+    bool _IsAntirotate;
     #endregion
 
-    //Trouver un moyen d'activer et desactiver les bons components de navmesh suface de chaque mur car ils font partie du conflit.
+    //#region Start
+    //private void Start ()
+    //{
+    //    _ground1.GetComponent<NavMeshSurface> ().enabled= true;
+    //    _groundVL.GetComponent<NavMeshSurface> ().enabled= false;
+    //    _groundVR.GetComponent<NavMeshSurface> ().enabled = false;
+    //}
+    //#endregion
 
     #region ONTRIGGERENTER
     private void OnTriggerEnter (Collider other)
@@ -32,21 +42,30 @@ public class RotateTeleport : MonoBehaviour
 
             RaycastHit hit;
 
-            //if (Physics.Raycast (_playerTr.position, _playerTr.forward, out hit))
             if (Physics.Raycast (transform.position, transform.forward, out hit))
             {
                 if (hit.collider.gameObject.name == "GroundVL")
                 {
+                    _IsAntirotate = true;
                     StartCoroutine (StartBake1 ());
                 }
 
                 if (hit.collider.gameObject.name == "GroundVR")
                 {
+                    _IsRotate = true;
                     StartCoroutine (StartBake2 ());
                 }
                 if (hit.collider.gameObject.name == "Ground1")
                 {
-                    _platform.transform.rotation = Quaternion.Euler (0, 0, 0);
+                    _IsAntirotate = false;
+                    _IsRotate = false;
+                    _teleportDownL.SetActive (true);
+                    _teleportDownR.SetActive (true);
+                    _teleportUpL.SetActive (false);
+                    _teleportUpR.SetActive (false);
+                    _ground1.GetComponent<NavMeshSurface> ().enabled = true;
+                    _groundVL.GetComponent<NavMeshSurface> ().enabled = false;
+                    _groundVR.GetComponent<NavMeshSurface> ().enabled = false;
                 }
             }
 
@@ -55,43 +74,53 @@ public class RotateTeleport : MonoBehaviour
     }
     #endregion
 
-    #region Coroutine
+    #region Coroutine Bake NavMesh
     IEnumerator StartBake1 ()
     {
-        _walls.isStatic= false;
-        yield return new WaitForSeconds (5f);
-        AntiRotate ();
-        yield return new WaitForSeconds (10f);
         _suface.RemoveData ();
-        yield return new WaitForSeconds (1f);
+        _walls.isStatic= false;
+        StartCoroutine (AntiRotate ());
+        _teleportDownL.SetActive(false);
+        _teleportDownR.SetActive(false);
+        _teleportUpL.SetActive (true);
+        _teleportUpR.SetActive (true);
+        yield return new WaitForSeconds (5f * Time.deltaTime);
         _walls.isStatic = true;
-        yield return new WaitForSeconds (2f);
         _suface.BuildNavMesh ();
     }
 
     IEnumerator StartBake2 ()
     {
-        _walls.isStatic = false;
-        yield return new WaitForSeconds (5f);
-        Rotate ();
-        yield return new WaitForSeconds (10f);
         _suface.RemoveData ();
-        yield return new WaitForSeconds (1f);
+        _walls.isStatic = false;
+        StartCoroutine (Rotate ());
+        _teleportDownL.SetActive (false);
+        _teleportDownR.SetActive (false);
+        _teleportUpL.SetActive (true);
+        _teleportUpR.SetActive (true);
+        yield return new WaitForSeconds (5f * Time.deltaTime);
         _walls.isStatic = true;
-        yield return new WaitForSeconds (2f);
         _suface.BuildNavMesh ();
     }
     #endregion
 
-    #region GroundRotation
-    public void AntiRotate ()
+    #region Coroutine GroundRotation
+    IEnumerator AntiRotate ()
     {
-        _platform.transform.rotation = Quaternion.Euler (0, 0, -90f);
+        _animation.SetBool ("IsAntirotate", _IsAntirotate);
+        yield return new WaitForSeconds (3f * Time.deltaTime);
+        _ground1.GetComponent<NavMeshSurface> ().enabled = false;
+        _groundVL.GetComponent<NavMeshSurface> ().enabled = true;
+        _groundVR.GetComponent<NavMeshSurface> ().enabled = false;
     }
 
-    public void Rotate ()
+    IEnumerator Rotate ()
     {
-        _platform.transform.rotation = Quaternion.Euler (0, 0, 90);
+        _animation.SetBool ("IsRotate", _IsRotate);
+        yield return new WaitForSeconds (3f * Time.deltaTime);
+        _ground1.GetComponent<NavMeshSurface> ().enabled = false;
+        _groundVL.GetComponent<NavMeshSurface> ().enabled = false;
+        _groundVR.GetComponent<NavMeshSurface> ().enabled = true;
     }
     #endregion
 }
