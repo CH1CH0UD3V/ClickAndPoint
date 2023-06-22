@@ -2,23 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
 
 [CreateAssetMenu (fileName = "RotateTeleportSO", menuName = "ScriptSO/RotateTeleportSO")]
 public class RotateTeleportSO : ScriptableObject
 {
-    [SerializeField] Transform _grounds;
+    [SerializeField] GameObject _ground;
     [SerializeField] Material _groundColor;
 
     #region GroundRotation
     public void AntiRotate ()
     {
-        _grounds.rotation = Quaternion.Euler (0, 0, -90f);
+        _ground.transform.rotation = Quaternion.Euler (0, 0, -90f);
     }
 
     public void Rotate ()
     {
-        _grounds.rotation = Quaternion.Euler (0, 0, 90);
+        _ground.transform.rotation = Quaternion.Euler (0, 0, 90);
     }
     #endregion
 

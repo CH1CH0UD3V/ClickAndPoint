@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44ff5f94ebb0def4aa0ee1b8b9025be4, type: 3}
+  m_Name: RotateTeleportSORightRotate
+  m_EditorClassIdentifier: 
+  _ground: {fileID: 7073572691415097601, guid: 4cbc3f4bfeca36f48ab9c13744ba8236, type: 3}
+  _groundColor: {fileID: 2100000, guid: 2959be95fb8ee084a8bdd58f11977878, type: 2}
