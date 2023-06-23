@@ -79,7 +79,7 @@ public class RotateTeleport : MonoBehaviour
     {
         _suface.RemoveData ();
         _walls.isStatic= false;
-        StartCoroutine (AntiRotate ());
+        AntiRotate ();
         _teleportDownL.SetActive(false);
         _teleportDownR.SetActive(false);
         _teleportUpL.SetActive (true);
@@ -93,7 +93,7 @@ public class RotateTeleport : MonoBehaviour
     {
         _suface.RemoveData ();
         _walls.isStatic = false;
-        StartCoroutine (Rotate ());
+        Rotate ();
         _teleportDownL.SetActive (false);
         _teleportDownR.SetActive (false);
         _teleportUpL.SetActive (true);
@@ -105,19 +105,17 @@ public class RotateTeleport : MonoBehaviour
     #endregion
 
     #region Coroutine GroundRotation
-    IEnumerator AntiRotate ()
+    void AntiRotate ()
     {
         _animation.SetBool ("IsAntirotate", _IsAntirotate);
-        yield return new WaitForSeconds (3f * Time.deltaTime);
         _ground1.GetComponent<NavMeshSurface> ().enabled = false;
         _groundVL.GetComponent<NavMeshSurface> ().enabled = true;
         _groundVR.GetComponent<NavMeshSurface> ().enabled = false;
     }
 
-    IEnumerator Rotate ()
+    void Rotate ()
     {
         _animation.SetBool ("IsRotate", _IsRotate);
-        yield return new WaitForSeconds (3f * Time.deltaTime);
         _ground1.GetComponent<NavMeshSurface> ().enabled = false;
         _groundVL.GetComponent<NavMeshSurface> ().enabled = false;
         _groundVR.GetComponent<NavMeshSurface> ().enabled = true;
