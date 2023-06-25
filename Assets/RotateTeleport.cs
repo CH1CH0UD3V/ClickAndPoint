@@ -23,15 +23,6 @@ public class RotateTeleport : MonoBehaviour
     bool _IsAntirotate;
     #endregion
 
-    //#region Start
-    //private void Start ()
-    //{
-    //    _ground1.GetComponent<NavMeshSurface> ().enabled= true;
-    //    _groundVL.GetComponent<NavMeshSurface> ().enabled= false;
-    //    _groundVR.GetComponent<NavMeshSurface> ().enabled = false;
-    //}
-    //#endregion
-
     #region ONTRIGGERENTER
     private void OnTriggerEnter (Collider other)
     {
@@ -57,8 +48,10 @@ public class RotateTeleport : MonoBehaviour
                 }
                 if (hit.collider.gameObject.name == "Ground1")
                 {
-                    _IsAntirotate = false;
-                    _IsRotate = false;
+                    //_IsAntirotate = false;
+                    //_IsRotate = false;
+                    _animation.SetBool ("IsAntirotate", false);
+                    _animation.SetBool ("IsRotate", false);
                     _teleportDownL.SetActive (true);
                     _teleportDownR.SetActive (true);
                     _teleportUpL.SetActive (false);
@@ -69,7 +62,7 @@ public class RotateTeleport : MonoBehaviour
                 }
             }
 
-            _rbPlayer.isKinematic = false;
+            //_rbPlayer.isKinematic = false;
         }
     }
     #endregion
@@ -104,7 +97,7 @@ public class RotateTeleport : MonoBehaviour
     }
     #endregion
 
-    #region Coroutine GroundRotation
+    #region GroundRotation
     void AntiRotate ()
     {
         _animation.SetBool ("IsAntirotate", _IsAntirotate);
