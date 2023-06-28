@@ -20,7 +20,7 @@ PrefabInstance:
     - target: {fileID: 307544429782995851, guid: 64cc728c5079b3f46bb0bbf966c3f333,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 307544429782995851, guid: 64cc728c5079b3f46bb0bbf966c3f333,
         type: 3}
@@ -30,7 +30,7 @@ PrefabInstance:
     - target: {fileID: 307544429782995851, guid: 64cc728c5079b3f46bb0bbf966c3f333,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 8.7
       objectReference: {fileID: 0}
     - target: {fileID: 307544429782995851, guid: 64cc728c5079b3f46bb0bbf966c3f333,
         type: 3}
@@ -84,8 +84,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 307544429782995852, guid: 64cc728c5079b3f46bb0bbf966c3f333,
         type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 307544429782995852, guid: 64cc728c5079b3f46bb0bbf966c3f333,
+        type: 3}
       propertyPath: m_IsKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 307544429782995854, guid: 64cc728c5079b3f46bb0bbf966c3f333,
+        type: 3}
+      propertyPath: m_Acceleration
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 307544429782995854, guid: 64cc728c5079b3f46bb0bbf966c3f333,
+        type: 3}
+      propertyPath: m_AngularSpeed
+      value: 360
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64cc728c5079b3f46bb0bbf966c3f333, type: 3}
